@@ -1,0 +1,37 @@
+{
+  "name": "proshop-v2",
+  "version": "1.0.0",
+  "description": "eCommerce application with mern",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clemy84/proshop-demo-2.git"
+  },
+  "author": "clemy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clemy84/proshop-demo-2/issues"
+  },
+  "homepage": "https://github.com/clemy84/proshop-demo-2#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "colors": "^1.4.0",
+    "colours": "^0.6.0-2",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "dotenv": "^17.0.1",
+    "nodemon": "^3.1.10"
+  }
+}
