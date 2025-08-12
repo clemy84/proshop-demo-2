@@ -17,6 +17,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProductSreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import LoginSreen from './screens/LoginSreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,9 @@ const router = createBrowserRouter(
       <Route path="/product/:id" element={<ProductSreen />} />
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/login" element={<LoginSreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
+      {/* Add more routes as needed */}
+      {/* Fallback route for 404 Not Found */}
     </Route>
   )
 );
