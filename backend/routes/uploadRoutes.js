@@ -31,7 +31,7 @@ const uplooad = multer({
 });
 
 router.post('/', uplooad.single('image'), (req, res) => {
-  res.send({
+  res.status(200).send({
     message: 'Image uploaded',
     image: `/${req.file.path}`,
   });
