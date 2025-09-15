@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
-import { set } from 'mongoose';
 
 const SearchBox = () => {
   const navigate = useNavigate();
