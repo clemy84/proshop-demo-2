@@ -1,3 +1,4 @@
+import { get } from 'mongoose';
 import { PRODUCTS_URL, UPLOADS_URL } from '../constants';
 import { apiSlice } from './apiSlice';
 
@@ -53,6 +54,12 @@ export const productsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Product'],
     }),
+    getTopProducts: builder.query({
+      query: () => ({
+        url: `${PRODUCTS_URL}/top`,
+      }),
+      keepUnusedDataFor: 5, // Keep data for 5 seconds before refetching
+    }),
   }),
 });
 
@@ -64,4 +71,5 @@ export const {
   useUploadProductImageMutation,
   useDeleteProductMutation,
   useCreateReviewMutation,
+  useGetTopProductsQuery,
 } = productsApiSlice;
