@@ -33,9 +33,22 @@ app.use('/api/uploads', uploadRoutes);
 app.get('/api/config/paypal', (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
-
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads'))); // Serve static files from uploads folder
+
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+  // any route that not will be redirected to index.html
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running...');
+  });
+}
 
 app.use(notFound); // Middleware for handling 404 errors
 app.use(errorHandler); // Middleware for handling errors
